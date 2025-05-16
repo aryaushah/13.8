@@ -103,7 +103,7 @@ export default function Hero() {
               this collection explores the intersection of form and function in extreme environments.
             </p>
             <div className="space-y-4">
-              <div className="flex items-center space-x-3">
+              {/* <div className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-gray-900 rounded-full" />
                 <span className="text-sm tracking-wider">THERMAL REGULATION</span>
               </div>
@@ -114,7 +114,7 @@ export default function Hero() {
               <div className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-gray-900 rounded-full" />
                 <span className="text-sm tracking-wider">SUSTAINABLE MATERIALS</span>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

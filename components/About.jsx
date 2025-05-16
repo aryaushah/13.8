@@ -54,7 +54,7 @@ export default function About({ onClose }) {
             </div>
 
             <div className="mt-12 space-y-4">
-              <div className="flex items-center space-x-3">
+              {/* <div className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-gray-900 rounded-full" />
                 <span className="text-sm tracking-wider">RESEARCH-DRIVEN</span>
               </div>
@@ -65,7 +65,7 @@ export default function About({ onClose }) {
               <div className="flex items-center space-x-3">
                 <div className="w-2 h-2 bg-gray-900 rounded-full" />
                 <span className="text-sm tracking-wider">INNOVATIVE DESIGN</span>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
