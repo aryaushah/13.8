@@ -76,7 +76,7 @@ export default function TransparentGirls() {
           <div className="relative w-full h-full py-32">
             <div className="absolute top-24 left-1/2 transform -translate-x-1/2 z-10">
               <h2 className="text-4xl font-light tracking-widest text-gray-900">
-                DESIGN PROCESS
+              FINAL CREATION
               </h2>
             </div>
             <div className="h-full flex items-center justify-center">
@@ -97,7 +97,7 @@ export default function TransparentGirls() {
           <div className="relative w-full h-full py-32">
             <div className="absolute top-24 left-1/2 transform -translate-x-1/2 z-10">
               <h2 className="text-4xl font-light tracking-widest text-gray-900">
-                FINAL CREATION
+                
               </h2>
             </div>
             <div className="h-full flex items-center justify-center">
