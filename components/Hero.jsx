@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import About from './About';
+import Presentation from './Presentation';
 
 export default function Hero() {
   const [showIntro, setShowIntro] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
+  const [showPresentation, setShowPresentation] = useState(false);
 
   useEffect(() => {
     // Start fade out after 3.5 seconds
@@ -25,6 +27,10 @@ export default function Hero() {
 
   const handleAboutClick = () => {
     setShowAbout(true);
+  };
+
+  const handlePresentationClick = () => {
+    setShowPresentation(true);
   };
 
   if (showIntro) {
@@ -48,6 +54,7 @@ export default function Hero() {
       {/* Landing Page Section */}
       <section className="h-screen relative bg-white overflow-hidden">
         {showAbout && <About onClose={() => setShowAbout(false)} />}
+        {showPresentation && <Presentation onClose={() => setShowPresentation(false)} />}
         <div className="h-full flex items-center justify-center">
           <video
             src="/hero-video-landscape-continuous.mp4"
@@ -57,21 +64,27 @@ export default function Hero() {
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white opacity-30" />
-          <div className="relative z-10 flex flex-col items-center">
+          <div className="relative z-10 flex flex-col items-center space-y-4">
             <a 
               href="#split-screen"
               className="px-12 py-5 rounded-full border-2 border-white bg-white text-gray-900 hover:scale-110 hover:shadow-lg transition-all duration-300 text-xl font-light tracking-wider"
             >
               Enter Here
             </a>
-          </div>
-          <div className="absolute bottom-8 right-8 z-10">
-            <button 
-              onClick={handleAboutClick}
-              className="px-5 py-2 rounded-full border-2 border-black bg-black text-white hover:scale-110 hover:shadow-lg transition-all duration-300 text-base font-light tracking-wider"
-            >
-              About Me
-            </button>
+            <div className="flex space-x-4">
+              <button 
+                onClick={handlePresentationClick}
+                className="px-5 py-2 rounded-full border-2 border-black bg-black text-white hover:scale-110 hover:shadow-lg transition-all duration-300 text-base font-light tracking-wider"
+              >
+                Presentation
+              </button>
+              <button 
+                onClick={handleAboutClick}
+                className="px-5 py-2 rounded-full border-2 border-black bg-black text-white hover:scale-110 hover:shadow-lg transition-all duration-300 text-base font-light tracking-wider"
+              >
+                About Me
+              </button>
+            </div>
           </div>
         </div>
       </section>

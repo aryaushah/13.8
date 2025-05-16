@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Contact from './Contact';
+import About from './About';
+import Presentation from './Presentation';
 
 export default function TransparentGirls() {
   const containerRef = useRef(null);
@@ -7,6 +9,8 @@ export default function TransparentGirls() {
   const contactRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
   const [showContact, setShowContact] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
+  const [showPresentation, setShowPresentation] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -110,46 +114,103 @@ export default function TransparentGirls() {
 
       {/* Contact Section */}
       <section className="min-h-screen bg-white flex items-center justify-center">
+        {showContact && <Contact onClose={() => setShowContact(false)} />}
+        {showAbout && <About onClose={() => setShowAbout(false)} />}
+        {showPresentation && <Presentation onClose={() => setShowPresentation(false)} />}
         <div 
           ref={contactRef}
           className="w-full max-w-2xl px-8 py-16 text-center"
         >
           <h3 className="text-2xl font-light tracking-wider mb-12">GET IN TOUCH</h3>
-          <div 
-            className="inline-block"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            <button
-              onClick={() => setShowContact(true)}
-              className={`
-                group relative px-8 py-4 
-                border-2 border-gray-900 
-                bg-white/80 backdrop-blur-sm
-                transition-all duration-300 ease-out
-                ${isHovered ? 'scale-105 shadow-lg' : 'scale-100'}
-              `}
+          <div className="flex justify-center space-x-4">
+            <div 
+              className="inline-block"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
             >
-              <div className="flex items-center space-x-3">
-                <svg 
-                  className="w-5 h-5 text-gray-900 transition-transform duration-300 group-hover:scale-110" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  viewBox="0 0 24 24"
-                >
-                  <path 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round" 
-                    strokeWidth={1.5} 
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" 
-                  />
-                </svg>
-                <span className="text-sm font-light tracking-wider text-gray-900">
-                  CONTACT
-                </span>
-              </div>
-              <div className="absolute inset-0 border-2 border-gray-900 transform translate-x-2 translate-y-2 -z-10 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
-            </button>
+              <button
+                onClick={() => setShowContact(true)}
+                className={`
+                  group relative px-8 py-4 
+                  border-2 border-gray-900 
+                  bg-white/80 backdrop-blur-sm
+                  transition-all duration-300 ease-out
+                  ${isHovered ? 'scale-105 shadow-lg' : 'scale-100'}
+                `}
+              >
+                <div className="flex items-center space-x-3">
+                  <svg 
+                    className="w-5 h-5 text-gray-900 transition-transform duration-300 group-hover:scale-110" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={1.5} 
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" 
+                    />
+                  </svg>
+                  <span className="text-sm font-light tracking-wider text-gray-900">
+                    CONTACT
+                  </span>
+                </div>
+                <div className="absolute inset-0 border-2 border-gray-900 transform translate-x-2 translate-y-2 -z-10 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
+              </button>
+            </div>
+            <div className="inline-block">
+              <button
+                onClick={() => setShowPresentation(true)}
+                className="group relative px-8 py-4 border-2 border-gray-900 bg-white/80 backdrop-blur-sm transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg"
+              >
+                <div className="flex items-center space-x-3">
+                  <svg 
+                    className="w-5 h-5 text-gray-900 transition-transform duration-300 group-hover:scale-110" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={1.5} 
+                      d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2" 
+                    />
+                  </svg>
+                  <span className="text-sm font-light tracking-wider text-gray-900">
+                    PRESENTATION
+                  </span>
+                </div>
+                <div className="absolute inset-0 border-2 border-gray-900 transform translate-x-2 translate-y-2 -z-10 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
+              </button>
+            </div>
+            <div className="inline-block">
+              <button
+                onClick={() => setShowAbout(true)}
+                className="group relative px-8 py-4 border-2 border-gray-900 bg-white/80 backdrop-blur-sm transition-all duration-300 ease-out hover:scale-105 hover:shadow-lg"
+              >
+                <div className="flex items-center space-x-3">
+                  <svg 
+                    className="w-5 h-5 text-gray-900 transition-transform duration-300 group-hover:scale-110" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={1.5} 
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" 
+                    />
+                  </svg>
+                  <span className="text-sm font-light tracking-wider text-gray-900">
+                    ABOUT ME
+                  </span>
+                </div>
+                <div className="absolute inset-0 border-2 border-gray-900 transform translate-x-2 translate-y-2 -z-10 transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1" />
+              </button>
+            </div>
           </div>
         </div>
       </section>
