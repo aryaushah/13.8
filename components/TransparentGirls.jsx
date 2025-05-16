@@ -38,6 +38,7 @@ export default function TransparentGirls() {
 
   return (
     <>
+      {/* CLO Experimentation Section */}
       <section className="min-h-screen bg-white relative overflow-hidden">
         {showContact && <Contact onClose={() => setShowContact(false)} />}
         <div 
@@ -60,6 +61,48 @@ export default function TransparentGirls() {
               alt="Fashion Models"
               className="w-full h-full object-contain"
             />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-white/0 to-white/20" />
+          </div>
+        </div>
+      </section>
+
+      {/* First Image Section */}
+      <section className="min-h-screen bg-white relative overflow-hidden">
+        <div className="h-screen flex items-center justify-center transition-all duration-1000 ease-out">
+          <div className="relative w-full h-full py-32">
+            <div className="absolute top-24 left-1/2 transform -translate-x-1/2 z-10">
+              <h2 className="text-4xl font-light tracking-widest text-gray-900">
+                DESIGN PROCESS
+              </h2>
+            </div>
+            <div className="h-full flex items-center justify-center">
+              <img
+                src="/Image (1).png"
+                alt="Design Process"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-white/0 to-white/20" />
+          </div>
+        </div>
+      </section>
+
+      {/* Second Image Section */}
+      <section className="min-h-screen bg-white relative overflow-hidden">
+        <div className="h-screen flex items-center justify-center transition-all duration-1000 ease-out">
+          <div className="relative w-full h-full py-32">
+            <div className="absolute top-24 left-1/2 transform -translate-x-1/2 z-10">
+              <h2 className="text-4xl font-light tracking-widest text-gray-900">
+                FINAL CREATION
+              </h2>
+            </div>
+            <div className="h-full flex items-center justify-center">
+              <img
+                src="/Image (2).png"
+                alt="Final Creation"
+                className="w-full h-full object-contain"
+              />
+            </div>
             <div className="absolute inset-0 bg-gradient-to-b from-white/0 via-white/0 to-white/20" />
           </div>
         </div>

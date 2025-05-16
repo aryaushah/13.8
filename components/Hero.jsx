@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import About from './About';
 
 export default function Hero() {
-  const [showContent, setShowContent] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
@@ -23,10 +22,6 @@ export default function Hero() {
       clearTimeout(hideTimer);
     };
   }, []);
-
-  const handleEnterClick = () => {
-    setShowContent(true);
-  };
 
   const handleAboutClick = () => {
     setShowAbout(true);
@@ -49,10 +44,10 @@ export default function Hero() {
   }
 
   return (
-    <section className="h-screen relative bg-white overflow-hidden">
-      {showAbout && <About onClose={() => setShowAbout(false)} />}
-      <div className={`h-full transition-all duration-1000 ease-in-out transform ${showContent ? '-translate-y-full' : 'translate-y-0'}`}>
-        {/* Initial full-screen video with enter button */}
+    <>
+      {/* Landing Page Section */}
+      <section className="h-screen relative bg-white overflow-hidden">
+        {showAbout && <About onClose={() => setShowAbout(false)} />}
         <div className="h-full flex items-center justify-center">
           <video
             src="/hero-video-landscape-continuous.mp4"
@@ -62,25 +57,27 @@ export default function Hero() {
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white opacity-30" />
-          <div className="relative z-10 flex flex-col items-center space-y-4">
-            <button 
-              onClick={handleEnterClick}
+          <div className="relative z-10 flex flex-col items-center">
+            <a 
+              href="#split-screen"
               className="px-12 py-5 rounded-full border-2 border-white bg-white text-gray-900 hover:scale-110 hover:shadow-lg transition-all duration-300 text-xl font-light tracking-wider"
             >
               Enter Here
-            </button>
+            </a>
+          </div>
+          <div className="absolute bottom-8 right-8 z-10">
             <button 
               onClick={handleAboutClick}
-              className="px-5 py-2 rounded-full border-2 border-white bg-white text-gray-900 hover:scale-110 hover:shadow-lg transition-all duration-300 text-base font-light tracking-wider"
+              className="px-5 py-2 rounded-full border-2 border-black bg-black text-white hover:scale-110 hover:shadow-lg transition-all duration-300 text-base font-light tracking-wider"
             >
               About Me
             </button>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className={`absolute inset-0 transition-all duration-1000 ease-in-out transform ${showContent ? 'translate-y-0' : 'translate-y-full'}`}>
-        {/* Split screen layout */}
+      {/* Split Screen Section */}
+      <section id="split-screen" className="h-screen relative bg-white">
         <div className="h-full flex">
           {/* Left side - Video */}
           <div className="w-1/2 h-full relative">
@@ -118,7 +115,7 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 } 
